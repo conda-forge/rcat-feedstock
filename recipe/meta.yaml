@@ -10,16 +10,16 @@ source:
   sha256: c539ba7d0030119e47a0376859a3e670976a1aa4a6061f26480826dd4a113545
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - esmpy
     - xesmf
     - dask
@@ -27,6 +27,8 @@ requirements:
     - dask-jobqueue
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - rcat
 
