@@ -1,18 +1,18 @@
 {% set name = "RCAT" %}
-{% set version = "1.1" %}
+{% set version = "2020.5" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/jplind79/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: c539ba7d0030119e47a0376859a3e670976a1aa4a6061f26480826dd4a113545
+  url: https://github.com/jplind79/{{ name }}/archive/{{ version }}.tar.gz
+  sha256: f119ea5549705e47dcce8b2b7000a319babbfe2eda052980e2df3a3ab6f3bcf2
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -35,7 +35,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Regional Climate Analysis Tool (RCAT)'
+  summary: Regional Climate Analysis Tool (RCAT)
 
   description: |
     RCAT is an analysis tool primarily developed for analysis of regional
